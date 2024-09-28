@@ -20,4 +20,15 @@ export class AppComponent {
   changeName() {
     this.name += '!';
   }
+
+  clearAll() {
+    this.users = [];
+  }
+
+  deleteItem(id: number) {
+    let index = this.users.findIndex(x => x.id === id);
+
+    if (index !== -1)
+      this.users.splice(index, 1);
+  }
 }
