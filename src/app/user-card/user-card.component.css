@@ -11,6 +11,10 @@ div {
     height: 200px;
 }
 
+div:first-child {
+    margin-left: 0;
+}
+
 div h2 {
     text-align: center;
 }

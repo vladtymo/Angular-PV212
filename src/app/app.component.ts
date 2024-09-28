@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserCardComponent } from "./user-card/user-card.component";
 import { IUser, USERS } from './user';
+import { UserFormComponent } from "./user-form/user-form.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent],
+  imports: [RouterOutlet, UserCardComponent, UserFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -21,8 +22,8 @@ export class AppComponent {
     this.name += '!';
   }
 
-  clearAll() {
-    this.users = [];
+  createUser(user: IUser) {
+    this.users.push(user);
   }
 
   deleteItem(id: number) {
@@ -30,5 +31,9 @@ export class AppComponent {
 
     if (index !== -1)
       this.users.splice(index, 1);
+  }
+
+  clearAll() {
+    this.users = [];
   }
 }

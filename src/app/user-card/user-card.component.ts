@@ -10,14 +10,17 @@ import { IUser } from '../user';
 })
 export class UserCardComponent {
 
+  // вхідний параметр, який передається сюди від зовнішнього компонента
   @Input()
   user?: IUser;
 
+  // вихідний параметр події, на яку можна повісити обробник в зовнішньму компоненті
   @Output()
   onDelete = new EventEmitter<number>();
 
   remove() {
-    // how to remove? - No
+    // можемо видалити тут? - Ні
+    // генеруємо подію видалення
     this.onDelete.emit(this.user?.id);
   }
 
