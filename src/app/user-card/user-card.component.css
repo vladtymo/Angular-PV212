@@ -11,6 +11,10 @@ div {
     /* height: 200px; */
 }
 
+:host:nth-child(even) div {
+    background-color: darkgray;
+}
+
 div:first-child {
     margin-left: 0;
 }
