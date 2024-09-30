@@ -1,4 +1,4 @@
-<div>
+<div class="box">
     @for (i of users; track $index) {
     <app-user-card [user]="i" (onDelete)="deleteItem($event)"></app-user-card>
     }

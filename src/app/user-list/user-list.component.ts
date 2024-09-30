@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UserCardComponent } from "../user-card/user-card.component";
 import { UserFormComponent } from "../user-form/user-form.component";
 import { IUser, USERS } from '../user';
+import { HttpClient } from '@angular/common/http';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -12,7 +14,13 @@ import { IUser, USERS } from '../user';
 })
 export class UserListComponent {
 
-  users: IUser[] = USERS;
+  users: IUser[] = [];
+
+  constructor(private usersService: UsersService) {
+    usersService.getAll().subscribe(data => {
+      this.users = data;
+    })
+  }
 
   // properties and methods
   createUser(user: IUser) {
